@@ -1,0 +1,42 @@
+---
+
+---
+
+<div class="filter-button">
+  <select name="days" class="days" required>
+    <option value="remove day">Choose a day</option>
+    <option value="friday">Friday</option>
+    <option value="saturday">Saturday</option>
+    <option value="sunday">Sunday</option>
+  </select>
+</div>
+
+<style>
+  .filter-button {
+    text-align: center;
+    margin: 20px;
+  }
+
+  .days {
+    background-color: transparent;
+    color: #f1ede5;
+    border: 2px solid #f1ede5;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 800px;
+    text-align: center;
+    font-family: "Arial", sans-serif;
+    appearance: none;
+  }
+
+  option {
+    background-color: #020d2d;
+    color: #ffffff;
+    padding: 20px;
+  }
+
+  .days:valid option[value="remove day"] {
+    display: none;
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+import About from "../components/About.astro";
+import Singleviewimage from "../components/Singleviewimage.astro";
+---
+
+<div class="grid1_1">
+  <div class="image-section">
+    <Singleviewimage />
+  </div>
+
+  <div class="text-section">
+    <About overskrift="Friday 29 August, 23:00 Manegen" />
+    <div class="Musikbar">
+      <h3>Musik bar</h3>
+      <h3>Musik bar</h3>
+      <h3>Musik bar</h3>
+    </div>
+  </div>
+</div>
+
+<style>
+  .grid1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .image-section {
+    grid-column: 1;
+  }
+
+  .text-section {
+    grid-column: 2; /* Tekst og Musikbar i anden kolonne */
+    margin-top: 10vh;
+  }
+
+  .Musikbar {
+    margin-top: 30vh;
+  }
+
+  h3 {
+    gap: 40px;
+  }
+</style>
