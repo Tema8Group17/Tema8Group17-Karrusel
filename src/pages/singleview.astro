@@ -28,7 +28,7 @@ import Singleviewimage from "../components/Singleviewimage.astro";
  
 
   .text-section {
-    grid-column: 2; /* Tekst og Musikbar i anden kolonne */
+    grid-column: 2; 
     margin-top: 10vh;
   }
 
@@ -41,11 +41,13 @@ import Singleviewimage from "../components/Singleviewimage.astro";
   }
 
 
-@media(max-width:750px){
+@media(max-width:768px){
   .grid1_1{
     display:grid;
-
+    grid-template-columns: 1fr;
+    
   }
+
 }
 
 </style>
