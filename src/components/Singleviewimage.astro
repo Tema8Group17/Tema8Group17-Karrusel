@@ -36,4 +36,24 @@
     z-index: 1; 
     aspect-ratio: 16 / 9;
   }
+
+
+@media (max-width: 768px) {
+  .artist-image {
+    width: 450px;
+    height: 450px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+ 
+  .artist-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .artist-name {
+    margin-top: 20px;
+  }
+}
+
 </style>
