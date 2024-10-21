@@ -1,0 +1,24 @@
+---
+const artists = await fetch(
+  "https://qrmsxsqepinalqgbykma.supabase.co/rest/v1/artists?",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFybXN4c3FlcGluYWxxZ2J5a21hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2MzkwMzIsImV4cCI6MjA0NDIxNTAzMn0.-c24Labp4ehDyWSghIjoa_klzOKVqUva3hzdr5e8BUQ",
+    },
+  }
+).then((Response) => Response.json());
+
+console.log(artists);
+---
+
+<!-- <ul>
+  {
+    artists.map((artist) => (
+      <li>
+        <h3>{artist.Name}</h3>
+      </li>
+    ))
+  }
+</ul> -->
