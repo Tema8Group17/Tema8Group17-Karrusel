@@ -1,28 +1,36 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Polygonimg from "../components/polygonimg.astro";
+
+const artists = await fetch(
+  "https://qrmsxsqepinalqgbykma.supabase.co/rest/v1/artists?",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFybXN4c3FlcGluYWxxZ2J5a21hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2MzkwMzIsImV4cCI6MjA0NDIxNTAzMn0.-c24Labp4ehDyWSghIjoa_klzOKVqUva3hzdr5e8BUQ",
+    },
+  }
+).then((Response) => Response.json());
 ---
 
 <Mainlayout>
   <div class="container">
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
-    <Polygonimg />
+    {
+      artists.map((artist) => {
+        return <Polygonimg artistdata={artist} />;
+      })
+    }
   </div>
 </Mainlayout>
 
 <style>
   .container {
-    height: fit-content;
+    /* height: fit-content; */
     /* outline: dashed 2px red; */
     display: grid;
-    grid-template-columns: repeat(12, content-fit);
-    grid-template-rows: repeat(4, content-fit);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
 
     justify-content: center;
   }
