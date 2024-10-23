@@ -1,0 +1,31 @@
+---
+const { artistdata } = Astro.props;
+---
+
+<a href="#">
+  <img
+    src=`/billeder/${artistdata.ArtistImage}`
+    alt=`${artistdata.ArtistName}`
+    class="polygonimg"
+  />
+</a>
+
+<style>
+  .polygonimg {
+    width: 200px;
+    aspect-ratio: 13/16;
+    object-fit: cover;
+    object-position: 0 0px;
+  }
+  a {
+    width: 200px;
+    clip-path: polygon(50% 0%, 90% 50%, 50% 100%, 10% 50%);
+    grid-column: span 2;
+    grid-row: span 2;
+
+    justify-self: center;
+  }
+  a:hover {
+    opacity: 50%;
+  }
+</style>
