@@ -11,11 +11,88 @@ export async function getStaticPaths() {
     }
   ).then((reponse) => reponse.json());
 
-  return data.map((post) => {
+  return data.map((artist) => {
     return {
-      params: { artist: post.slug },
-      props: { post },
+      params: { artist: artist.slug },
+      props: { myArtist: artist },
     };
   });
 }
+
+import Mainlayout from "../../layout/Mainlayout.astro";
+import Singleviewimage from "../../components/Singleviewimage.astro";
+import About from "../../components/About.astro";
+import Musicbox from "../../components/Musicbox.astro";
+
+const { myArtist } = Astro.props;
+console.log(myArtist);
 ---
+
+<Mainlayout>
+  <div class="grid1_1">
+    <div class="image-section">
+      <Singleviewimage
+        ArtistImage={myArtist.ArtistImage}
+        ArtistName={myArtist.ArtistName}
+      />
+    </div>
+
+    <div class="text-section">
+      <About overskrift="Friday 29 August, 23:00 Manegen" />
+      <div class="Musikbar">
+        <Musicbox />
+        <h3>Musik bar</h3>
+        <h3>Musik bar</h3>
+      </div>
+    </div>
+  </div>
+</Mainlayout>
+
+<style>
+  .grid1_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .text-section {
+    grid-column: 2;
+    margin-top: 10vh;
+  }
+
+  .Musikbar {
+    margin-top: 30vh;
+  }
+
+  h3 {
+    gap: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .grid1_1 {
+      background-color: aquamarine;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .image-section {
+      grid-column: 1/-1;
+      grid-row: span 1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .Musikbar {
+      margin-top: 20px;
+      text-align: center; /* Centrerer teksten horisontalt */
+    }
+
+    .text-section {
+      grid-column: 1/-1;
+      grid-row: span 2;
+      margin-top: 0px;
+    }
+  }
+</style>

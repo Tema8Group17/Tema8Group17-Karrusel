@@ -1,17 +1,16 @@
 ---
-import Mainlayout from "../layout/Mainlayout.astro";
 
-const { artistdata } = Astro.props;
-console.log(artistdata);
+const { ArtistImage, ArtistName } = Astro.props;
+
 ---
 
-<Mainlayout>
+
   <div class="artist-card">
-    <img src=`/billeder/${artistdata.ArtistImage}`
-    alt=`${artistdata.ArtistName}`>
-    <h2 class="artist-name">PEGGY GOU</h2>
+    <img class="artist-image"src={`/billeder/${ArtistImage}`}
+    alt=`${ArtistName}`>
+    <h2 class="artist-name">{ArtistName}</h2>
   </div>
-</Mainlayout>
+
 
 <style>
   /* Styling for container */
@@ -22,6 +21,7 @@ console.log(artistdata);
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     overflow: hidden;
     aspect-ratio: 16 / 9;
+    outline: solid 5px blue;
   }
 
   .artist-image {
