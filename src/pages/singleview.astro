@@ -2,17 +2,36 @@
 import About from "../components/About.astro";
 import Singleviewimage from "../components/Singleviewimage.astro";
 import Musicbox from "../components/Musicbox.astro";
+
+const artists = await fetch(
+  "https://qrmsxsqepinalqgbykma.supabase.co/rest/v1/artists?",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFybXN4c3FlcGluYWxxZ2J5a21hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg2MzkwMzIsImV4cCI6MjA0NDIxNTAzMn0.-c24Labp4ehDyWSghIjoa_klzOKVqUva3hzdr5e8BUQ",
+    },
+  }
+).then((Response) => Response.json());
 ---
 
 <div class="grid1_1">
   <div class="image-section">
-    <Singleviewimage />
+    {
+      artists.map((artist) => {
+        return <Singleviewimage artistdata={artist} />;
+      })
+    }
   </div>
+  <!-- 
+  <div class="image-section">
+    <Singleviewimage />
+  </div> -->
 
   <div class="text-section">
     <About overskrift="Friday 29 August, 23:00 Manegen" />
     <div class="Musikbar">
-      <Musicbox></Musicbox>
+      <Musicbox />
       <h3>Musik bar</h3>
       <h3>Musik bar</h3>
     </div>

@@ -1,11 +1,17 @@
 ---
+import Mainlayout from "../layout/Mainlayout.astro";
 
+const { artistdata } = Astro.props;
+console.log(artistdata);
 ---
 
-<div class="artist-card">
-  <img src="/billeder/eminem.webp" alt="Peggy Gou" class="artist-image" />
-  <h2 class="artist-name">PEGGY GOU</h2>
-</div>
+<Mainlayout>
+  <div class="artist-card">
+    <img src=`/billeder/${artistdata.ArtistImage}`
+    alt=`${artistdata.ArtistName}`>
+    <h2 class="artist-name">PEGGY GOU</h2>
+  </div>
+</Mainlayout>
 
 <style>
   /* Styling for container */
@@ -38,7 +44,7 @@
   }
 
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .artist-image {
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     width: 100%;
@@ -51,6 +57,6 @@
       align-items: center;
   
   }
-}
+} */
 
 </style>
