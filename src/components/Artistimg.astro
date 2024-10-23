@@ -1,8 +1,10 @@
 ---
-const { artistdata } = Astro.props;
+const { artistdata, artiststage } = Astro.props;
+
+console.log(artiststage);
 ---
 
-<a href="#">
+<a href={`artister/${artistdata.slug}`}>
   <img
     src=`/billeder/${artistdata.ArtistImage}`
     alt=`${artistdata.ArtistName}`
