@@ -1,9 +1,10 @@
 ---
 import Mainlayout from "../layout/Mainlayout.astro";
 import Polygonimg from "../components/Polygonimg.astro";
+import Filterbutton from "../components/Filterbutton.astro";
 
 const events = await fetch(
-  "https://qrmsxsqepinalqgbykma.supabase.co/rest/v1/events?",
+  "https://qrmsxsqepinalqgbykma.supabase.co/rest/v1/events?limit=8",
   {
     method: "GET",
     headers: {
@@ -17,22 +18,51 @@ const events = await fetch(
 
 <Mainlayout>
   <div class="container">
+  <Filterbutton></Filterbutton>
+  <div class="gallerycontainer">
     {
       events.map((event) => {
         return <Polygonimg eventdata={event} />;
       })
     }
   </div>
+</div>
 </Mainlayout>
 
 <style>
   .container {
-    /* height: fit-content; */
     margin-top: 200px;
+  }
+
+  @media only screen and (min-width: 769px) {
+    .container {
+      background-color: rgb(52, 52, 52);
+    }
+  .gallerycontainer {
+    width: fit-content;
     outline: dashed 2px red;
     display: grid;
-    grid-template-columns: repeat(12, fit-content);
+    grid-template-columns: auto;
     grid-template-rows: repeat(4, 1fr);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  }
+  /* Mobile */
+  @media only screen and (max-width: 768px) { 
+    .container {
+      background-color: rgb(105, 81, 81);
+    }
+
+    .gallerycontainer {
+    width: 500px;
+    outline: dashed 2px red;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    grid-template-rows: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
   }
 
 </style>
