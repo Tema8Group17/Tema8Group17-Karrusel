@@ -1,9 +1,16 @@
+---
+const { songOne } = Astro.props;
+---
+
 <iframe
-  src="https://open.spotify.com/embed/track/23RoR84KodL5HWvUTneQ1w?utm_source=generator&theme=0"
+  src={`https://open.spotify.com/embed/track/${songOne}?utm_source=generator&theme=0`}
   frameborder="0"
   allowfullscreen=""
   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-  loading="lazy"></iframe>
+  loading="lazy"
+>
+</iframe>
+
 <style>
   iframe {
     border-radius: 12px;
@@ -11,3 +18,7 @@
     height: 200px;
   }
 </style>
+
+<!-- src={`https://open.spotify.com/embed/track/${ID}?utm_source=generator&theme=0`}
+          "https://open.spotify.com/embed/track/23RoR84KodL5HWvUTneQ1w?utm_source=generator&theme=0"
+                                                23RoR84KodL5HWvUTneQ1w -->
