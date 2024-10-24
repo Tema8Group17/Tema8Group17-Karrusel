@@ -6,49 +6,45 @@ const href = Astro.props.href;
 const id = Astro.props.id;
 
 ---
-
+<div>
 <a href={href} id={id} >
-    <div id= "menudiv"class="menu-image nobc" ></div>
+    <div id= "menudiv" class="menu-image nobc" ></div>
     <img id= "menuimg" class="nofil" {src} alt="">
     <h3>{header}</h3>
 </a>
 
 <script define:vars={{ id }}>
-    
     var element = document.getElementById(id);
-
-    element.addEventListener("mouseover", ()=>{
-        onhover(element, "#menudiv", "nobc" );
-        onhover(element, "#menuimg", "nofil" );
-    });
-
-    element.addEventListener("mouseout", ()=>
-    {
-        hoveroff(element, "#menudiv", "nobc" );
-        hoveroff(element, "#menuimg", "nofil" );
-
+    
+    element.addEventListener("mouseover", () => {
+        removeClassFromElement(element, "#menudiv", "nobc");
+        removeClassFromElement(element, "#menuimg", "nofil");
     });
     
-    function onhover (element, cssSelector, className) {
-       var elementOne = element.querySelector(cssSelector);
+    element.addEventListener("mouseout", () => {
+        addClassToElement(element, "#menudiv", "nobc");
+        addClassToElement(element, "#menuimg", "nofil");
+    });
 
-       elementOne.classList.remove(className);
-    }
+    function removeClassFromElement(element, cssSelector, className) {
+  var elementOne = element.querySelector(cssSelector);
 
-    function hoveroff (element, cssSelector, className) {
-        var elementOne = element.querySelector(cssSelector);
+  elementOne.classList.remove(className);
+}
 
-        elementOne.classList.add(className);
-    }
-    
-    </script>
+function addClassToElement(element, cssSelector, className) {
+  var elementOne = element.querySelector(cssSelector);
 
+  elementOne.classList.add(className);
+}
+  </script>
+  
 <style>
-      a {
-      display: grid;  
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      text-decoration: none;
+    a {
+        display: grid;  
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        text-decoration: none;
     }
     .menu-image {
         grid-column: 1/2;
@@ -62,27 +58,28 @@ const id = Astro.props.id;
         width: 100%;
         height: 523px;
     }
-.nobc {
-    background-color: rgb(68, 148, 148, 80%);
-}
-.nofil {
-    filter: grayscale(100%);
-}
-
+    .nobc {
+        background-color: rgb(68, 148, 148, 80%);
+    }
+    .nofil {
+        filter: grayscale(100%);
+    }
+    
     h3 {
-    grid-column: 1/2;
-    grid-row: 1 / 2;
-    z-index: 1;
-    text-align: center;
-    font-family: 'Morsan', sans-serif;
-    font-size: 30px;
-    font-weight: 400;
-    color: #fffff0;
-   pointer-events: none;
+        grid-column: 1/2;
+        grid-row: 1 / 2;
+        z-index: 1;
+        text-align: center;
+        font-family: 'Morsan', sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        color: #fffff0;
+        pointer-events: none;
     }
     @media (max-width: 799px) {
-    a {
-        span 1;
+        a {
+            span 1;
+        }
     }
-    }
-</style>
+    </style>
+

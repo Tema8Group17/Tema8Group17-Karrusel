@@ -1,12 +1,12 @@
 ---
-const { eventdata } = Astro.props;
+const { eventdata, id } = Astro.props;
 ---
 
 <a href="#">
   <img
     src=`/billeder/${eventdata.eventimg}`
     alt=`${eventdata.slug}`
-    class="polygonimg"
+    class="polygonimg nofil"
   />
 </a>
 

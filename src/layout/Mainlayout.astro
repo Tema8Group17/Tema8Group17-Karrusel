@@ -1,11 +1,10 @@
 ---
-import Footer from '../components/Footer.astro'
-import Logo from '../components/logo.astro';
-import logo from '../components/logo.astro'
-const {title, setIndex} = Astro.props;
+import Footer from "../components/Footer.astro";
+import Logo from "../components/logo.astro";
+import logo from "../components/logo.astro";
+const { title, setIndex } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,17 +16,16 @@ const {title, setIndex} = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.cdnfonts.com/css/morsan" rel="stylesheet">
-                
-    <title>{title}</title>
-</head>
-<body>
-    <header>
+    <link href="https://fonts.cdnfonts.com/css/morsan" rel="stylesheet" />
 
-<Logo {setIndex}></Logo>
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <Logo {setIndex} />
     </header>
-    
-    <slot/>
-    <Footer></Footer>
-</body>
+
+    <slot />
+    <Footer />
+  </body>
 </html>
