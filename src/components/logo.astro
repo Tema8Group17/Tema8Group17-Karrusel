@@ -1,38 +1,35 @@
 ---
-
-const {setIndex} = Astro.props;
+const { setIndex } = Astro.props;
 ---
 
-<section class= `Logo ${setIndex}`>
-<h3>28-30. Agust 2025</h3>
-<img src="/public/billeder/Logo_lightmode.svg" alt="Logo">
-<h3>Refshaleøen</h3>
+<section class=`Logo ${setIndex}`>
+  <h3>28-30. Agust 2025</h3>
+  <a href="/">
+    <img src="/public/billeder/Logo_lightmode.svg" alt="Logo" />
+  </a>
+  <h3>Refshaleøen</h3>
 </section>
 
 <style>
-.Logo{
+  .Logo {
     display: flex;
     justify-content: space-evenly;
-   position: absolute;
-   align-items: center;
-   left: 25%;
-  top: 5%;
-   
+    position: absolute;
+    align-items: center;
+    left: 25%;
+    top: 5%;
+  }
 
-}
-
-.yes {
+  .yes {
     z-index: 1;
-}
+  }
 
-h3{
-    color: #F238E6;
+  h3 {
+    color: #f238e6;
     margin-bottom: 85px;
-   
-}
+  }
 
-img{
+  img {
     width: 40%;
-}
-
+  }
 </style>
