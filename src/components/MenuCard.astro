@@ -5,7 +5,8 @@ const href = Astro.props.href;
 ---
 
 <a href={href}>
-    <img class="menu-image" {src} alt="">
+    <div class="menu-image nobc" ></div>
+    <img class="nofil" {src} alt="">
     <h3>{header}</h3>
 </a>
 
@@ -19,14 +20,22 @@ const href = Astro.props.href;
     .menu-image {
         grid-column: 1/2;
         grid-row: 1 / 2;
+        z-index:1;
+    }
+    img {
+        grid-column: 1/2;
+        grid-row: 1 / 2;
         object-fit: cover;
         width: 100%;
         height: 523px;
     }
+.nobc {
+    background-color: rgb(68, 148, 148, 80%);
+}
+.nofil {
+    filter: grayscale(100%);
+}
 
-    .menu-image:hover {
-        filter: grayscale(80%)
-    } 
     h3 {
     grid-column: 1/2;
     grid-row: 1 / 2;
@@ -36,7 +45,7 @@ const href = Astro.props.href;
     font-size: 30px;
     font-weight: 400;
     color: #fffff0;
-   
+   pointer-events: none;
     }
     @media (max-width: 799px) {
     a {
@@ -44,3 +53,14 @@ const href = Astro.props.href;
     }
     }
 </style>
+<script>
+
+    const a = document.querySelector("a");
+    a.addEventListener("mouseout", hover);
+
+    function hover() {
+        const nobc = document.querySelector("div");
+        nobc.classList.remove("nobc");
+    }
+    
+</script>
