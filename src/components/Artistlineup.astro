@@ -28,22 +28,24 @@ const artists = await fetch(
   .container {
     /* outline: dashed 2px red; */
     display: grid;
-    grid-template-columns: 1fr 1fr 10fr;
+    grid-template-columns: 80px 1fr 10fr;
     grid-template-rows: repeat(4, 1fr);
 
     justify-content: center;
   }
+
   #lineup {
-    max-height: 500px;
+    max-height: fit-content;
     grid-column: 3/-1;
     grid-row: 1/-1;
 
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(12, 80px);
     grid-template-rows: repeat(4, 1fr);
 
-    overflow-x: scroll;
-    outline: dashed 3px red;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
   #stage1 {
     grid-column: 1/3;

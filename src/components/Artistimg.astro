@@ -1,5 +1,6 @@
 ---
 const { artistdata } = Astro.props;
+console.log(artistdata);
 ---
 
 <a href={`artister/${artistdata.slug}`}>
@@ -12,10 +13,10 @@ const { artistdata } = Astro.props;
 
 <style>
   .polygonimg {
-    width: 200px;
-    aspect-ratio: 13/16;
+    width: 300px;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    object-position: 0 0px;
+    object-position: -70px 0;
   }
   a {
     width: 200px;
