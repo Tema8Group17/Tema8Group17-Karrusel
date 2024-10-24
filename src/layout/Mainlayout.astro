@@ -2,7 +2,7 @@
 import Footer from '../components/Footer.astro'
 import Logo from '../components/logo.astro';
 import logo from '../components/logo.astro'
-const {title} = Astro.props;
+const {title, setIndex} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +22,7 @@ const {title} = Astro.props;
 <body>
     <header>
 
-<Logo setindex= yes></Logo>
+<Logo {setIndex}></Logo>
     </header>
     
     <slot/>
