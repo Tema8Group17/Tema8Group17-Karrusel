@@ -33,35 +33,24 @@ const events = await fetch(
   .container {
     margin-top: 200px;
   }
-
-  @media only screen and (min-width: 769px) {
-    .container {
-      background-color: rgb(52, 52, 52);
-    }
   .gallerycontainer {
-    width: fit-content;
-    outline: dashed 2px red;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: repeat(4, 1fr);
     margin-left: auto;
     margin-right: auto;
+  }
+  @media only screen and (min-width: 769px) {
+  .gallerycontainer {
+    width: fit-content;
+    grid-template-rows: repeat(4, 1fr);
   }
   }
   /* Mobile */
   @media only screen and (max-width: 768px) { 
-    .container {
-      background-color: rgb(105, 81, 81);
-    }
 
     .gallerycontainer {
     width: 500px;
-    outline: dashed 2px red;
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 1fr;
     grid-template-rows: auto;
-    margin-left: auto;
-    margin-right: auto;
   }
   }
 
