@@ -1,14 +1,47 @@
 ---
+
 const header = Astro.props.header;
 const src = Astro.props.src;
 const href = Astro.props.href;
+const id = Astro.props.id;
+
 ---
 
-<a href={href}>
-    <div class="menu-image nobc" ></div>
-    <img class="nofil" {src} alt="">
+<a href={href} id={id} >
+    <div id= "menudiv"class="menu-image nobc" ></div>
+    <img id= "menuimg" class="nofil" {src} alt="">
     <h3>{header}</h3>
 </a>
+
+<script define:vars={{ id }}>
+    
+    var element = document.getElementById(id);
+
+    element.addEventListener("mouseover", ()=>{
+        onhover(element, "#menudiv", "nobc" );
+        onhover(element, "#menuimg", "nofil" );
+    });
+
+    element.addEventListener("mouseout", ()=>
+    {
+        hoveroff(element, "#menudiv", "nobc" );
+        hoveroff(element, "#menuimg", "nofil" );
+
+    });
+    
+    function onhover (element, cssSelector, className) {
+       var elementOne = element.querySelector(cssSelector);
+
+       elementOne.classList.remove(className);
+    }
+
+    function hoveroff (element, cssSelector, className) {
+        var elementOne = element.querySelector(cssSelector);
+
+        elementOne.classList.add(className);
+    }
+    
+    </script>
 
 <style>
       a {
@@ -53,14 +86,3 @@ const href = Astro.props.href;
     }
     }
 </style>
-<script>
-
-    const a = document.querySelector("a");
-    a.addEventListener("mouseout", hover);
-
-    function hover() {
-        const nobc = document.querySelector("div");
-        nobc.classList.remove("nobc");
-    }
-    
-</script>

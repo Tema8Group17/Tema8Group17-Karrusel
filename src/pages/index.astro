@@ -5,36 +5,51 @@ import MenuCard from "../components/MenuCard.astro";
 ---
 
 <Mainlayout title="Search" setIndex="yes">
-<Hero></Hero>
+  <Hero />
   <div class="menucards">
-  <MenuCard header="Gallery" src="/billeder/AndersDalhøjK23Lørdag6KatzK.webp" href="../gallery"/>
-  <MenuCard header="Tickets" src="/billeder/AndersDalhøjK23Lørdag6KatzK.webp"/>
-  <MenuCard header="Line-up" src="/billeder/SimonLauK23Torsdag94.webp" href="../lineup"/> 
-  <MenuCard header="About" src="/billeder/ElenaPerotaK23Lørdag332.webp"/>
-</div>
+    <MenuCard
+      header="Gallery"
+      src="/billeder/AndersDalhøjK23Lørdag6KatzK.webp"
+      href="../gallery"
+      id="gallery"
+    />
+    <MenuCard
+      header="Tickets"
+      src="/billeder/AndersDalhøjK23Lørdag6KatzK.webp"
+      id="Tickets"
+    />
+    <MenuCard
+      header="Line-up"
+      src="/billeder/SimonLauK23Torsdag94.webp"
+      href="../lineup"
+      id="lineup"
+    />
+    <MenuCard
+      header="About"
+      src="/billeder/ElenaPerotaK23Lørdag332.webp"
+      id="About"
+    />
+  </div>
 </Mainlayout>
- 
 
 <style>
-
-.menucards {
-	width: 100%;
-	height: 100%;
-}
-	@media (min-width: 800px) {
-	.menucards {
-		margin-top: 2%;
-		display: flex;
-		flex-direction: row;
-		
-	}
-}
-@media (max-width: 799px) {
-	.menucards {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		margin-top: 2%;
-	}
-}
+  .menucards {
+    width: 100%;
+    height: 100%;
+  }
+  @media (min-width: 800px) {
+    .menucards {
+      margin-top: 2%;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  @media (max-width: 799px) {
+    .menucards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      margin-top: 2%;
+    }
+  }
 </style>
