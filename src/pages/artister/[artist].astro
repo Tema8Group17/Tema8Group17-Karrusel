@@ -23,6 +23,8 @@ import Mainlayout from "../../layout/Mainlayout.astro";
 import Singleviewimage from "../../components/Singleviewimage.astro";
 import About from "../../components/About.astro";
 import Musicbox from "../../components/Musicbox.astro";
+import MusikboxTwo from "../../components/MusikboxTwo.astro";
+import MusikboxThree from "../../components/MusikboxThree.astro";
 
 const { myArtist } = Astro.props;
 console.log(myArtist);
@@ -40,9 +42,9 @@ console.log(myArtist);
     <div class="text-section">
       <About Day={myArtist.Day} AboutText={myArtist.AboutText} />
       <div class="Musikbar">
-        <Musicbox />
-        <h3>Musik bar</h3>
-        <h3>Musik bar</h3>
+        <Musicbox songOne={myArtist.songOne} />
+        <MusikboxTwo songTwo={myArtist.songTwo} />
+        <MusikboxThree songThree={myArtist.songThree} />
       </div>
     </div>
   </div>
